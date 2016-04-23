@@ -10,6 +10,7 @@ public class GameActivity extends AppCompatActivity {
 
 
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,7 +35,9 @@ public class GameActivity extends AppCompatActivity {
         final TextView textView8 = (TextView)findViewById(R.id.textView8);
         final TextView textView9 = (TextView)findViewById(R.id.textView9);
 
+
         //Populate array
+
         Storage.toDoArray.add("");
         Storage.toDoArray.add("");
         Storage.toDoArray.add("");
@@ -44,6 +47,8 @@ public class GameActivity extends AppCompatActivity {
         Storage.toDoArray.add("");
         Storage.toDoArray.add("");
         Storage.toDoArray.add("");
+
+
 
 
 //keep persistance views
