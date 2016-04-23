@@ -87,14 +87,14 @@ public class GameActivity extends AppCompatActivity {
                     textView.setText("X");
                     Storage.playerTurn = false;
                     showView.setText(player1 + "s" + " turn!");
-                    Storage.toDoArray.add(0, "x");
+                    Storage.toDoArray.set(0, "x");
 
 
                 }else{
                     textView.setText("O");
                     Storage.playerTurn = true;
                     showView.setText(player2 + "s" + " turn!");
-                    Storage.toDoArray.add(0, "O");
+                    Storage.toDoArray.set(0, "O");
 
                 }
             }
@@ -110,14 +110,14 @@ public class GameActivity extends AppCompatActivity {
                     textView2.setText("X");
                     Storage.playerTurn = false;
                     showView.setText(player1 + "s" + " turn!");
-                    Storage.toDoArray.add(1, "x");
+                    Storage.toDoArray.set(1, "x");
 
 
                 }else{
                     textView2.setText("O");
                     Storage.playerTurn = true;
                     showView.setText(player2 + "s" + " turn!");
-                    Storage.toDoArray.add(1, "O");
+                    Storage.toDoArray.set(1, "O");
 
                 }
             }
@@ -132,14 +132,14 @@ public class GameActivity extends AppCompatActivity {
                     textView3.setText("X");
                     Storage.playerTurn = false;
                     showView.setText(player1 + "s" + " turn!");
-                    Storage.toDoArray.add(2, "x");
+                    Storage.toDoArray.set(2, "x");
 
 
                 }else{
                     textView3.setText("O");
                     Storage.playerTurn = true;
                     showView.setText(player2 + "s" + " turn!");
-                    Storage.toDoArray.add(2, "O");
+                    Storage.toDoArray.set(2, "O");
 
                 }
             }
@@ -155,7 +155,7 @@ public class GameActivity extends AppCompatActivity {
                     textView4.setText("X");
                     Storage.playerTurn = false;
                     showView.setText(player1 + "s" + " turn!");
-                    Storage.toDoArray.add(3, "x");
+                    Storage.toDoArray.set(3, "x");
 
 
 
@@ -163,7 +163,7 @@ public class GameActivity extends AppCompatActivity {
                     textView4.setText("O");
                     Storage.playerTurn = true;
                     showView.setText(player2 + "s" + " turn!");
-                    Storage.toDoArray.add(3, "O");
+                    Storage.toDoArray.set(3, "O");
 
 
                 }
@@ -180,14 +180,14 @@ public class GameActivity extends AppCompatActivity {
                     textView5.setText("X");
                     Storage.playerTurn = false;
                     showView.setText(player1 + "s" + " turn!");
-                    Storage.toDoArray.add(4, "x");
+                    Storage.toDoArray.set(4, "x");
 
 
                 }else {
                     textView5.setText("O");
                     Storage.playerTurn = true;
                     showView.setText(player2 + "s" + " turn!");
-                    Storage.toDoArray.add(4, "O");
+                    Storage.toDoArray.set(4, "O");
 
 
                 }
@@ -204,14 +204,14 @@ public class GameActivity extends AppCompatActivity {
                     textView6.setText("X");
                     Storage.playerTurn = false;
                     showView.setText(player1 + "s" + " turn!");
-                    Storage.toDoArray.add(5, "x");
+                    Storage.toDoArray.set(5, "x");
 
 
                 }else{
                     textView6.setText("O");
                     Storage.playerTurn = true;
                     showView.setText(player2 + "s" + " turn!");
-                    Storage.toDoArray.add(5, "O");
+                    Storage.toDoArray.set(5, "O");
 
 
                 }
@@ -228,14 +228,14 @@ public class GameActivity extends AppCompatActivity {
                     textView7.setText("X");
                     Storage.playerTurn = false;
                     showView.setText(player1 + "s" + " turn!");
-                    Storage.toDoArray.add(6, "x");
+                    Storage.toDoArray.set(6, "x");
 
 
                 }else{
                     textView7.setText("O");
                     Storage.playerTurn = true;
                     showView.setText(player2 + "s" + " turn!");
-                    Storage.toDoArray.add(6, "O");
+                    Storage.toDoArray.set(6, "O");
 
 
                 }
@@ -252,14 +252,14 @@ public class GameActivity extends AppCompatActivity {
                     textView8.setText("X");
                     Storage.playerTurn = false;
                     showView.setText(player1 + "s" + " turn!");
-                    Storage.toDoArray.add(7, "x");
+                    Storage.toDoArray.set(7, "x");
 
 
                 }else{
                     textView8.setText("O");
                     Storage.playerTurn = true;
                     showView.setText(player2 + "s" + " turn!");
-                    Storage.toDoArray.add(7, "O");
+                    Storage.toDoArray.set(7, "O");
 
 
                 }
@@ -275,14 +275,14 @@ public class GameActivity extends AppCompatActivity {
                     textView9.setText("X");
                     Storage.playerTurn = false;
                     showView.setText(player1 + "s" + " turn!");
-                    Storage.toDoArray.add(8, "x");
+                    Storage.toDoArray.set(8, "x");
 
 
                 }else{
                     textView9.setText("O");
                     Storage.playerTurn = true;
                     showView.setText(player2 + "s" + " turn!");
-                    Storage.toDoArray.add(8, "O");
+                    Storage.toDoArray.set(8, "O");
 
                 }
             }
