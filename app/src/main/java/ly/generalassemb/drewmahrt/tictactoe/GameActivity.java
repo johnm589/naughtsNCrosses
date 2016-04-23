@@ -8,7 +8,6 @@ import android.widget.TextView;
 
 public class GameActivity extends AppCompatActivity {
 
-public static  boolean playerTurn;
 
 
     @Override
@@ -35,34 +34,60 @@ public static  boolean playerTurn;
         final TextView textView8 = (TextView)findViewById(R.id.textView8);
         final TextView textView9 = (TextView)findViewById(R.id.textView9);
 
-        textView.setText(Storage.toDoArray.get(0));
-        textView2.setText(Storage.toDoArray.get(1));
-        textView3.setText(Storage.toDoArray.get(2));
-        textView4.setText(Storage.toDoArray.get(3));
-        textView5.setText(Storage.toDoArray.get(4));
-        textView6.setText(Storage.toDoArray.get(5));
-        textView7.setText(Storage.toDoArray.get(6));
-        textView8.setText(Storage.toDoArray.get(7));
-        textView9.setText(Storage.toDoArray.get(8));
+        //Populate array
+        Storage.toDoArray.add("");
+        Storage.toDoArray.add("");
+        Storage.toDoArray.add("");
+        Storage.toDoArray.add("");
+        Storage.toDoArray.add("");
+        Storage.toDoArray.add("");
+        Storage.toDoArray.add("");
+        Storage.toDoArray.add("");
+        Storage.toDoArray.add("");
+
+
+//keep persistance views
+            textView.setText(Storage.toDoArray.get(0));
+            textView2.setText(Storage.toDoArray.get(1));
+            textView3.setText(Storage.toDoArray.get(2));
+            textView4.setText(Storage.toDoArray.get(3));
+            textView5.setText(Storage.toDoArray.get(4));
+            textView6.setText(Storage.toDoArray.get(5));
+            textView7.setText(Storage.toDoArray.get(6));
+            textView8.setText(Storage.toDoArray.get(7));
+            textView9.setText(Storage.toDoArray.get(8));
+
+//Keep persistance with ability to click
+        textView.setEnabled(Storage.check);
+        textView2.setEnabled(Storage.check2);
+        textView3.setEnabled(Storage.check3);
+        textView4.setEnabled(Storage.check4);
+        textView5.setEnabled(Storage.check5);
+        textView6.setEnabled(Storage.check6);
+        textView7.setEnabled(Storage.check7);
+        textView8.setEnabled(Storage.check8);
+        textView9.setEnabled(Storage.check9);
+
 
 
 
         textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Storage.check = false;
 
-                textView.setEnabled(false);
+                textView.setEnabled(Storage.check);
 
-                if(playerTurn){
+                if(Storage.playerTurn){
                     textView.setText("X");
-                    playerTurn = false;
+                    Storage.playerTurn = false;
                     showView.setText(player1 + "s" + " turn!");
                     Storage.toDoArray.add(0, "x");
 
 
                 }else{
                     textView.setText("O");
-                    playerTurn = true;
+                    Storage.playerTurn = true;
                     showView.setText(player2 + "s" + " turn!");
                     Storage.toDoArray.add(0, "O");
 
@@ -72,18 +97,20 @@ public static  boolean playerTurn;
         textView2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                textView2.setEnabled(false);
+                Storage.check2 = false;
 
-                if(playerTurn){
+                textView2.setEnabled(Storage.check2);
+
+                if(Storage.playerTurn){
                     textView2.setText("X");
-                    playerTurn = false;
+                    Storage.playerTurn = false;
                     showView.setText(player1 + "s" + " turn!");
                     Storage.toDoArray.add(1, "x");
 
 
                 }else{
                     textView2.setText("O");
-                    playerTurn = true;
+                    Storage.playerTurn = true;
                     showView.setText(player2 + "s" + " turn!");
                     Storage.toDoArray.add(1, "O");
 
@@ -93,17 +120,19 @@ public static  boolean playerTurn;
         textView3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                textView3.setEnabled(false);
-                if(playerTurn){
+                Storage.check3 = false;
+
+                textView3.setEnabled(Storage.check3);
+                if(Storage.playerTurn){
                     textView3.setText("X");
-                    playerTurn = false;
+                    Storage.playerTurn = false;
                     showView.setText(player1 + "s" + " turn!");
                     Storage.toDoArray.add(2, "x");
 
 
                 }else{
                     textView3.setText("O");
-                    playerTurn = true;
+                    Storage.playerTurn = true;
                     showView.setText(player2 + "s" + " turn!");
                     Storage.toDoArray.add(2, "O");
 
@@ -113,11 +142,13 @@ public static  boolean playerTurn;
         textView4.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                textView4.setEnabled(false);
+                Storage.check4 = false;
 
-                if(playerTurn){
+                textView4.setEnabled(Storage.check4);
+
+                if(Storage.playerTurn){
                     textView4.setText("X");
-                    playerTurn = false;
+                    Storage.playerTurn = false;
                     showView.setText(player1 + "s" + " turn!");
                     Storage.toDoArray.add(3, "x");
 
@@ -125,7 +156,7 @@ public static  boolean playerTurn;
 
                 }else{
                     textView4.setText("O");
-                    playerTurn = true;
+                    Storage.playerTurn = true;
                     showView.setText(player2 + "s" + " turn!");
                     Storage.toDoArray.add(3, "O");
 
@@ -136,18 +167,20 @@ public static  boolean playerTurn;
         textView5.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                textView5.setEnabled(false);
+                Storage.check5 = false;
 
-                if(playerTurn){
+                textView5.setEnabled(Storage.check5);
+
+                if(Storage.playerTurn){
                     textView5.setText("X");
-                    playerTurn = false;
+                    Storage.playerTurn = false;
                     showView.setText(player1 + "s" + " turn!");
                     Storage.toDoArray.add(4, "x");
 
 
                 }else {
                     textView5.setText("O");
-                    playerTurn = true;
+                    Storage.playerTurn = true;
                     showView.setText(player2 + "s" + " turn!");
                     Storage.toDoArray.add(4, "O");
 
@@ -158,18 +191,20 @@ public static  boolean playerTurn;
         textView6.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                textView6.setEnabled(false);
+                Storage.check6 = false;
 
-                if(playerTurn){
+                textView6.setEnabled(Storage.check6);
+
+                if(Storage.playerTurn){
                     textView6.setText("X");
-                    playerTurn = false;
+                    Storage.playerTurn = false;
                     showView.setText(player1 + "s" + " turn!");
                     Storage.toDoArray.add(5, "x");
 
 
                 }else{
                     textView6.setText("O");
-                    playerTurn = true;
+                    Storage.playerTurn = true;
                     showView.setText(player2 + "s" + " turn!");
                     Storage.toDoArray.add(5, "O");
 
@@ -180,18 +215,20 @@ public static  boolean playerTurn;
         textView7.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                textView7.setEnabled(false);
+                Storage.check7 = false;
 
-                if(playerTurn){
+                textView7.setEnabled(Storage.check7);
+
+                if(Storage.playerTurn){
                     textView7.setText("X");
-                    playerTurn = false;
+                    Storage.playerTurn = false;
                     showView.setText(player1 + "s" + " turn!");
                     Storage.toDoArray.add(6, "x");
 
 
                 }else{
                     textView7.setText("O");
-                    playerTurn = true;
+                    Storage.playerTurn = true;
                     showView.setText(player2 + "s" + " turn!");
                     Storage.toDoArray.add(6, "O");
 
@@ -202,18 +239,20 @@ public static  boolean playerTurn;
         textView8.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                textView8.setEnabled(false);
+                Storage.check8 = false;
 
-                if(playerTurn){
+                textView8.setEnabled(Storage.check8);
+
+                if(Storage.playerTurn){
                     textView8.setText("X");
-                    playerTurn = false;
+                    Storage.playerTurn = false;
                     showView.setText(player1 + "s" + " turn!");
                     Storage.toDoArray.add(7, "x");
 
 
                 }else{
                     textView8.setText("O");
-                    playerTurn = true;
+                    Storage.playerTurn = true;
                     showView.setText(player2 + "s" + " turn!");
                     Storage.toDoArray.add(7, "O");
 
@@ -224,17 +263,19 @@ public static  boolean playerTurn;
         textView9.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                textView9.setEnabled(false);
-                if(playerTurn){
+                Storage.check9 = false;
+
+                textView9.setEnabled(Storage.check9);
+                if(Storage.playerTurn){
                     textView9.setText("X");
-                    playerTurn = false;
+                    Storage.playerTurn = false;
                     showView.setText(player1 + "s" + " turn!");
                     Storage.toDoArray.add(8, "x");
 
 
                 }else{
                     textView9.setText("O");
-                    playerTurn = true;
+                    Storage.playerTurn = true;
                     showView.setText(player2 + "s" + " turn!");
                     Storage.toDoArray.add(8, "O");
 
