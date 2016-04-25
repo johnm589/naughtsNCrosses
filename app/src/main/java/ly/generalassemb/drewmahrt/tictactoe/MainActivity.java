@@ -6,6 +6,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -17,6 +18,8 @@ public class MainActivity extends AppCompatActivity {
         Button intentButton = (Button)findViewById(R.id.start_game_button);
         final EditText p1 = (EditText)findViewById(R.id.player_one_name);
         final EditText p2 = (EditText)findViewById(R.id.player_two_name);
+        final TextView tv = (TextView)findViewById(R.id.last_winner_text);
+
 
 
         intentButton.setOnClickListener(new View.OnClickListener() {
@@ -26,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
                 String player1 = p1.getText().toString();
                 String player2 = p2.getText().toString();
 
-
+                tv.setText(Storage.lastWinner);
 
                 Intent i = new Intent(MainActivity.this, GameActivity.class);
                 i.putExtra("player1", player1);

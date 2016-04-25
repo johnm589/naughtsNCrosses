@@ -98,6 +98,7 @@ public class GameActivity extends AppCompatActivity {
 
 
                 }
+                checkOver();
             }
         });
         textView2.setOnClickListener(new View.OnClickListener() {
@@ -124,6 +125,7 @@ public class GameActivity extends AppCompatActivity {
 
 
                 }
+                checkOver();
             }
         });
         textView3.setOnClickListener(new View.OnClickListener() {
@@ -149,6 +151,7 @@ public class GameActivity extends AppCompatActivity {
 
 
                 }
+                checkOver();
             }
         });
         textView4.setOnClickListener(new View.OnClickListener() {
@@ -176,6 +179,7 @@ public class GameActivity extends AppCompatActivity {
 
 
                 }
+                checkOver();
             }
         });
         textView5.setOnClickListener(new View.OnClickListener() {
@@ -203,6 +207,7 @@ public class GameActivity extends AppCompatActivity {
 
 
                 }
+                checkOver();
             }
         });
         textView6.setOnClickListener(new View.OnClickListener() {
@@ -229,6 +234,7 @@ public class GameActivity extends AppCompatActivity {
 
 
                 }
+                checkOver();
             }
         });
         textView7.setOnClickListener(new View.OnClickListener() {
@@ -255,6 +261,7 @@ public class GameActivity extends AppCompatActivity {
 
 
                 }
+                checkOver();
             }
         });
         textView8.setOnClickListener(new View.OnClickListener() {
@@ -278,9 +285,8 @@ public class GameActivity extends AppCompatActivity {
                     Storage.toDoArray.set(7, "O");
                     checkWinner("O");
                     Storage.playerTurn = true;
-
-
                 }
+                checkOver();
             }
         });
         textView9.setOnClickListener(new View.OnClickListener() {
@@ -307,19 +313,56 @@ public class GameActivity extends AppCompatActivity {
 
 
                 }
-
+                checkOver();
             }
         });
     }
 
     public void checkWinner(String check) {
-
-        if(Storage.toDoArray.get(0).equals(check) && Storage.toDoArray.get(1).equals(check) && Storage.toDoArray.get(2).equals(check)){
+//Across Logic
+        if (Storage.toDoArray.get(0).equals(check) && Storage.toDoArray.get(1).equals(check) && Storage.toDoArray.get(2).equals(check)) {
             Storage.lastWinner = check;
-            Toast.makeText(GameActivity.this, "Winner is " +Storage.lastWinner, Toast.LENGTH_SHORT).show();
+            Toast.makeText(GameActivity.this, "Winner is " + Storage.lastWinner, Toast.LENGTH_SHORT).show();
+            resetBoard();
+
+        } else if (Storage.toDoArray.get(3).equals(check) && Storage.toDoArray.get(4).equals(check) && Storage.toDoArray.get(5).equals(check)) {
+            Storage.lastWinner = check;
+            Toast.makeText(GameActivity.this, "Winner is " + Storage.lastWinner, Toast.LENGTH_SHORT).show();
+            resetBoard();
+
+        } else if (Storage.toDoArray.get(6).equals(check) && Storage.toDoArray.get(7).equals(check) && Storage.toDoArray.get(8).equals(check)) {
+            Storage.lastWinner = check;
+            Toast.makeText(GameActivity.this, "Winner is " + Storage.lastWinner, Toast.LENGTH_SHORT).show();
+            resetBoard();
 
 
-            }
         }
+    }
+
+public void checkOver(){
+
+for(int i = 1; i < Storage.toDoArray.size();i++){
+
+    if(!Storage.toDoArray.get(i).equals(Storage.toDoArray.get(i-1))){
+
+        Toast.makeText(GameActivity.this, "Game Over", Toast.LENGTH_SHORT).show();
+    }
+
+    }
+}
+    public void resetBoard(){
+
+        Storage.toDoArray.set(0, "");
+        Storage.toDoArray.set(1, "");
+        Storage.toDoArray.set(2, "");
+        Storage.toDoArray.set(3, "");
+        Storage.toDoArray.set(4, "");
+        Storage.toDoArray.set(5, "");
+        Storage.toDoArray.set(6, "");
+        Storage.toDoArray.set(7, "");
+        Storage.toDoArray.set(8, "");
+        Storage.toDoArray.set(9, "");
+
+
     }
 }
