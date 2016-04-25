@@ -18,7 +18,9 @@ public class MainActivity extends AppCompatActivity {
         Button intentButton = (Button)findViewById(R.id.start_game_button);
         final EditText p1 = (EditText)findViewById(R.id.player_one_name);
         final EditText p2 = (EditText)findViewById(R.id.player_two_name);
-        final TextView tv = (TextView)findViewById(R.id.last_winner_text);
+         TextView tv = (TextView)findViewById(R.id.last_winner_text);
+
+        tv.setText("The last winner was " + Storage.lastWinner + " !");
 
 
 
@@ -29,7 +31,6 @@ public class MainActivity extends AppCompatActivity {
                 String player1 = p1.getText().toString();
                 String player2 = p2.getText().toString();
 
-                tv.setText("The last winner was " + Storage.lastWinner + " !");
 
                 Intent i = new Intent(MainActivity.this, GameActivity.class);
                 i.putExtra("player1", player1);

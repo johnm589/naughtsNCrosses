@@ -41,7 +41,7 @@ public class GameActivity extends AppCompatActivity {
         final TextView textView8 = (TextView) findViewById(R.id.textView8);
         final TextView textView9 = (TextView) findViewById(R.id.textView9);
 
-
+        Toast.makeText(GameActivity.this, Storage.player1, Toast.LENGTH_SHORT).show();
 
         //Populate array
 
@@ -102,8 +102,6 @@ public class GameActivity extends AppCompatActivity {
                     Storage.toDoArray.set(0, "O");
                     checkWinner("O");
                     Storage.playerTurn = true;
-
-
 
                 }
                 counter++;
@@ -349,15 +347,12 @@ public class GameActivity extends AppCompatActivity {
             resetBoard();
 
         }
-
-        if(Storage.lastWinner == "X"){
-            Storage.lastWinner = Storage.player1;
-        }else{
-            Storage.lastWinner = Storage.player2;
-        }
     }
 
 public void checkOver(){
+
+
+
     if(counter == 9){
         Toast.makeText(GameActivity.this, "Game Over", Toast.LENGTH_SHORT).show();
         resetBoard();
@@ -367,17 +362,15 @@ public void checkOver(){
 }
     public void resetBoard(){
 
+        if(Storage.lastWinner.contains("X")){
+            Storage.lastWinner = Storage.player1;
+        }else if(Storage.lastWinner.contains("O")){
+            Storage.lastWinner = Storage.player2;
+        }
+
+
         counter = 0;
 
-        final TextView textView = (TextView) findViewById(R.id.textView);
-        final TextView textView2 = (TextView) findViewById(R.id.textView2);
-        final TextView textView3 = (TextView) findViewById(R.id.textView3);
-        final TextView textView4 = (TextView) findViewById(R.id.textView4);
-        final TextView textView5 = (TextView) findViewById(R.id.textView5);
-        final TextView textView6 = (TextView) findViewById(R.id.textView6);
-        final TextView textView7 = (TextView) findViewById(R.id.textView7);
-        final TextView textView8 = (TextView) findViewById(R.id.textView8);
-        final TextView textView9 = (TextView) findViewById(R.id.textView9);
 
         Storage.toDoArray.set(0, "");
         Storage.toDoArray.set(1, "");
@@ -399,14 +392,7 @@ public void checkOver(){
         Storage.check8 = true;
         Storage.check9 = true;
 
-        textView.setText(Storage.toDoArray.get(0));
-        textView2.setText(Storage.toDoArray.get(1));
-        textView3.setText(Storage.toDoArray.get(2));
-        textView4.setText(Storage.toDoArray.get(3));
-        textView5.setText(Storage.toDoArray.get(4));
-        textView6.setText(Storage.toDoArray.get(5));
-        textView7.setText(Storage.toDoArray.get(6));
-        textView8.setText(Storage.toDoArray.get(7));
-        textView9.setText(Storage.toDoArray.get(8));
+        this.finish();
+
     }
 }
