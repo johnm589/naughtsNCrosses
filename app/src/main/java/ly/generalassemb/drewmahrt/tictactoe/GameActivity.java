@@ -5,10 +5,9 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class GameActivity extends AppCompatActivity {
-
-
 
 
     @Override
@@ -16,7 +15,7 @@ public class GameActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
 
-        final TextView showView = (TextView)findViewById(R.id.game_message_text);
+        final TextView showView = (TextView) findViewById(R.id.game_message_text);
 
         Intent i = getIntent();
 
@@ -25,15 +24,15 @@ public class GameActivity extends AppCompatActivity {
 
         showView.setText("It's " + player1 + "'s " + "turn!");
 
-        final TextView textView = (TextView)findViewById(R.id.textView);
-        final TextView textView2 = (TextView)findViewById(R.id.textView2);
-        final TextView textView3 = (TextView)findViewById(R.id.textView3);
-        final TextView textView4 = (TextView)findViewById(R.id.textView4);
-        final TextView textView5 = (TextView)findViewById(R.id.textView5);
-        final TextView textView6 = (TextView)findViewById(R.id.textView6);
-        final TextView textView7 = (TextView)findViewById(R.id.textView7);
-        final TextView textView8 = (TextView)findViewById(R.id.textView8);
-        final TextView textView9 = (TextView)findViewById(R.id.textView9);
+        final TextView textView = (TextView) findViewById(R.id.textView);
+        final TextView textView2 = (TextView) findViewById(R.id.textView2);
+        final TextView textView3 = (TextView) findViewById(R.id.textView3);
+        final TextView textView4 = (TextView) findViewById(R.id.textView4);
+        final TextView textView5 = (TextView) findViewById(R.id.textView5);
+        final TextView textView6 = (TextView) findViewById(R.id.textView6);
+        final TextView textView7 = (TextView) findViewById(R.id.textView7);
+        final TextView textView8 = (TextView) findViewById(R.id.textView8);
+        final TextView textView9 = (TextView) findViewById(R.id.textView9);
 
 
         //Populate array
@@ -49,20 +48,20 @@ public class GameActivity extends AppCompatActivity {
         Storage.toDoArray.add("");
 
 
+        //keep persistance views
 
+        textView.setText(Storage.toDoArray.get(0));
+        textView2.setText(Storage.toDoArray.get(1));
+        textView3.setText(Storage.toDoArray.get(2));
+        textView4.setText(Storage.toDoArray.get(3));
+        textView5.setText(Storage.toDoArray.get(4));
+        textView6.setText(Storage.toDoArray.get(5));
+        textView7.setText(Storage.toDoArray.get(6));
+        textView8.setText(Storage.toDoArray.get(7));
+        textView9.setText(Storage.toDoArray.get(8));
 
-//keep persistance views
-            textView.setText(Storage.toDoArray.get(0));
-            textView2.setText(Storage.toDoArray.get(1));
-            textView3.setText(Storage.toDoArray.get(2));
-            textView4.setText(Storage.toDoArray.get(3));
-            textView5.setText(Storage.toDoArray.get(4));
-            textView6.setText(Storage.toDoArray.get(5));
-            textView7.setText(Storage.toDoArray.get(6));
-            textView8.setText(Storage.toDoArray.get(7));
-            textView9.setText(Storage.toDoArray.get(8));
+        //Keep persistance with ability to click
 
-//Keep persistance with ability to click
         textView.setEnabled(Storage.check);
         textView2.setEnabled(Storage.check2);
         textView3.setEnabled(Storage.check3);
@@ -74,8 +73,6 @@ public class GameActivity extends AppCompatActivity {
         textView9.setEnabled(Storage.check9);
 
 
-
-
         textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -83,18 +80,22 @@ public class GameActivity extends AppCompatActivity {
 
                 textView.setEnabled(Storage.check);
 
-                if(Storage.playerTurn){
+                if (Storage.playerTurn) {
                     textView.setText("X");
-                    Storage.playerTurn = false;
                     showView.setText(player1 + "s" + " turn!");
-                    Storage.toDoArray.set(0, "x");
+                    Storage.toDoArray.set(0, "X");
+                    checkWinner("X");
+                    Storage.playerTurn = false;
 
 
-                }else{
+                } else {
                     textView.setText("O");
-                    Storage.playerTurn = true;
                     showView.setText(player2 + "s" + " turn!");
                     Storage.toDoArray.set(0, "O");
+                    checkWinner("O");
+                    Storage.playerTurn = true;
+
+
 
                 }
             }
@@ -106,18 +107,21 @@ public class GameActivity extends AppCompatActivity {
 
                 textView2.setEnabled(Storage.check2);
 
-                if(Storage.playerTurn){
+                if (Storage.playerTurn) {
                     textView2.setText("X");
-                    Storage.playerTurn = false;
                     showView.setText(player1 + "s" + " turn!");
-                    Storage.toDoArray.set(1, "x");
+                    Storage.toDoArray.set(1, "X");
+                    checkWinner("X");
+                    Storage.playerTurn = false;
 
 
-                }else{
+                } else {
                     textView2.setText("O");
-                    Storage.playerTurn = true;
                     showView.setText(player2 + "s" + " turn!");
                     Storage.toDoArray.set(1, "O");
+                    checkWinner("O");
+                    Storage.playerTurn = true;
+
 
                 }
             }
@@ -128,18 +132,21 @@ public class GameActivity extends AppCompatActivity {
                 Storage.check3 = false;
 
                 textView3.setEnabled(Storage.check3);
-                if(Storage.playerTurn){
+                if (Storage.playerTurn) {
                     textView3.setText("X");
-                    Storage.playerTurn = false;
                     showView.setText(player1 + "s" + " turn!");
-                    Storage.toDoArray.set(2, "x");
+                    Storage.toDoArray.set(2, "X");
+                    checkWinner("X");
+                    Storage.playerTurn = false;
 
 
-                }else{
+                } else {
                     textView3.setText("O");
-                    Storage.playerTurn = true;
                     showView.setText(player2 + "s" + " turn!");
                     Storage.toDoArray.set(2, "O");
+                    checkWinner("O");
+                    Storage.playerTurn = true;
+
 
                 }
             }
@@ -151,19 +158,21 @@ public class GameActivity extends AppCompatActivity {
 
                 textView4.setEnabled(Storage.check4);
 
-                if(Storage.playerTurn){
+                if (Storage.playerTurn) {
                     textView4.setText("X");
-                    Storage.playerTurn = false;
                     showView.setText(player1 + "s" + " turn!");
-                    Storage.toDoArray.set(3, "x");
+                    Storage.toDoArray.set(3, "X");
+                    Storage.playerTurn = false;
+                    checkWinner("X");
 
 
-
-                }else{
+                } else {
                     textView4.setText("O");
-                    Storage.playerTurn = true;
                     showView.setText(player2 + "s" + " turn!");
                     Storage.toDoArray.set(3, "O");
+                    Storage.playerTurn = true;
+                    checkWinner("O");
+
 
 
                 }
@@ -176,18 +185,21 @@ public class GameActivity extends AppCompatActivity {
 
                 textView5.setEnabled(Storage.check5);
 
-                if(Storage.playerTurn){
+                if (Storage.playerTurn) {
                     textView5.setText("X");
-                    Storage.playerTurn = false;
                     showView.setText(player1 + "s" + " turn!");
-                    Storage.toDoArray.set(4, "x");
+                    Storage.toDoArray.set(4, "X");
+                    checkWinner("X");
+                    Storage.playerTurn = false;
 
 
-                }else {
+
+                } else {
                     textView5.setText("O");
-                    Storage.playerTurn = true;
                     showView.setText(player2 + "s" + " turn!");
                     Storage.toDoArray.set(4, "O");
+                    checkWinner("O");
+                    Storage.playerTurn = true;
 
 
                 }
@@ -200,18 +212,20 @@ public class GameActivity extends AppCompatActivity {
 
                 textView6.setEnabled(Storage.check6);
 
-                if(Storage.playerTurn){
+                if (Storage.playerTurn) {
                     textView6.setText("X");
-                    Storage.playerTurn = false;
                     showView.setText(player1 + "s" + " turn!");
-                    Storage.toDoArray.set(5, "x");
+                    Storage.toDoArray.set(5, "X");
+                    checkWinner("X");
+                    Storage.playerTurn = false;
 
 
-                }else{
+                } else {
                     textView6.setText("O");
-                    Storage.playerTurn = true;
                     showView.setText(player2 + "s" + " turn!");
                     Storage.toDoArray.set(5, "O");
+                    checkWinner("O");
+                    Storage.playerTurn = true;
 
 
                 }
@@ -224,18 +238,20 @@ public class GameActivity extends AppCompatActivity {
 
                 textView7.setEnabled(Storage.check7);
 
-                if(Storage.playerTurn){
+                if (Storage.playerTurn) {
                     textView7.setText("X");
-                    Storage.playerTurn = false;
                     showView.setText(player1 + "s" + " turn!");
-                    Storage.toDoArray.set(6, "x");
+                    Storage.toDoArray.set(6, "X");
+                    checkWinner("X");
+                    Storage.playerTurn = false;
 
 
-                }else{
+                } else {
                     textView7.setText("O");
-                    Storage.playerTurn = true;
                     showView.setText(player2 + "s" + " turn!");
                     Storage.toDoArray.set(6, "O");
+                    checkWinner("O");
+                    Storage.playerTurn = true;
 
 
                 }
@@ -248,18 +264,20 @@ public class GameActivity extends AppCompatActivity {
 
                 textView8.setEnabled(Storage.check8);
 
-                if(Storage.playerTurn){
+                if (Storage.playerTurn) {
                     textView8.setText("X");
-                    Storage.playerTurn = false;
                     showView.setText(player1 + "s" + " turn!");
-                    Storage.toDoArray.set(7, "x");
+                    Storage.toDoArray.set(7, "X");
+                    checkWinner("X");
+                    Storage.playerTurn = false;
 
 
-                }else{
+                } else {
                     textView8.setText("O");
-                    Storage.playerTurn = true;
                     showView.setText(player2 + "s" + " turn!");
                     Storage.toDoArray.set(7, "O");
+                    checkWinner("O");
+                    Storage.playerTurn = true;
 
 
                 }
@@ -271,21 +289,37 @@ public class GameActivity extends AppCompatActivity {
                 Storage.check9 = false;
 
                 textView9.setEnabled(Storage.check9);
-                if(Storage.playerTurn){
+
+                if (Storage.playerTurn) {
                     textView9.setText("X");
-                    Storage.playerTurn = false;
                     showView.setText(player1 + "s" + " turn!");
-                    Storage.toDoArray.set(8, "x");
+                    Storage.toDoArray.set(8, "X");
+                    checkWinner("X");
+                    Storage.playerTurn = false;
 
 
-                }else{
+                } else {
                     textView9.setText("O");
-                    Storage.playerTurn = true;
                     showView.setText(player2 + "s" + " turn!");
                     Storage.toDoArray.set(8, "O");
+                    checkWinner("O");
+                    Storage.playerTurn = true;
+
 
                 }
+
             }
         });
+    }
+
+    public void checkWinner(String check) {
+
+        if(Storage.toDoArray.get(0).equals(check) && Storage.toDoArray.get(1).equals(check) && Storage.toDoArray.get(2).equals(check)){
+            Storage.lastWinner = check;
+            Toast.makeText(GameActivity.this, "Winner is " +Storage.lastWinner, Toast.LENGTH_SHORT).show();
+
+
+            }
+        }
     }
 }

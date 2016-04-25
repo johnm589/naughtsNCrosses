@@ -10,7 +10,7 @@ public class Storage {
     //This is where i store things.
 
     //hackky booleans to keep disable persistnace
-     static boolean check=true;
+     public static boolean check=true;
      public static boolean check2=true;
       public static boolean check3=true;
      public static boolean check4=true;
@@ -21,7 +21,9 @@ public class Storage {
     public static boolean check9=true;
 
 //global boolean
-    public static  boolean playerTurn;
+    public static  boolean playerTurn = true;
+    //global last winner
+    public static String lastWinner = "";
 
     static ArrayList<String> toDoArray = new ArrayList<>();
 
