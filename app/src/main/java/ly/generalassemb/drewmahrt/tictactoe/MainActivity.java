@@ -20,6 +20,8 @@ public class MainActivity extends AppCompatActivity {
         final EditText p1 = (EditText)findViewById(R.id.player_one_name);
         final EditText p2 = (EditText)findViewById(R.id.player_two_name);
 
+        p1.setText(Storage.player1);
+        p2.setText(Storage.player2);
 
         TextView tv = (TextView)findViewById(R.id.last_winner_text);
 if (Storage.lastWinner != "") {

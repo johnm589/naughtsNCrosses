@@ -1,6 +1,7 @@
 package ly.generalassemb.drewmahrt.tictactoe;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -9,7 +10,7 @@ import android.widget.Toast;
 
 public class GameActivity extends AppCompatActivity {
 
-    public static int counter = 0;
+     int counter = 0;
 
 
 
@@ -18,6 +19,7 @@ public class GameActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
+
 
         Storage.playerTurn = true;
 
@@ -91,18 +93,17 @@ public class GameActivity extends AppCompatActivity {
                 if (Storage.playerTurn) {
                     textView.setText("X");
                     showView.setText(player2 + "s" + " turn!");
+                    textView.setTextColor(Color.RED);
                     Storage.toDoArray.set(0, "X");
                     checkWinner("X");
                     Storage.playerTurn = false;
-
-
                 } else {
                     textView.setText("O");
                     showView.setText(player1 + "s" + " turn!");
+                    textView.setTextColor(Color.BLUE);
                     Storage.toDoArray.set(0, "O");
                     checkWinner("O");
                     Storage.playerTurn = true;
-
                 }
                 counter++;
                 checkOver();
@@ -118,19 +119,17 @@ public class GameActivity extends AppCompatActivity {
                 if (Storage.playerTurn) {
                     textView2.setText("X");
                     showView.setText(player2 + "s" + " turn!");
+                    textView2.setTextColor(Color.RED);
                     Storage.toDoArray.set(1, "X");
                     checkWinner("X");
                     Storage.playerTurn = false;
-
-
                 } else {
                     textView2.setText("O");
                     showView.setText(player1 + "s" + " turn!");
+                    textView2.setTextColor(Color.BLUE);
                     Storage.toDoArray.set(1, "O");
                     checkWinner("O");
                     Storage.playerTurn = true;
-
-
                 }
                 counter++;
                 checkOver();
@@ -145,6 +144,7 @@ public class GameActivity extends AppCompatActivity {
                 if (Storage.playerTurn) {
                     textView3.setText("X");
                     showView.setText(player2 + "s" + " turn!");
+                    textView3.setTextColor(Color.RED);
                     Storage.toDoArray.set(2, "X");
                     checkWinner("X");
                     Storage.playerTurn = false;
@@ -153,6 +153,7 @@ public class GameActivity extends AppCompatActivity {
                 } else {
                     textView3.setText("O");
                     showView.setText(player1 + "s" + " turn!");
+                    textView3.setTextColor(Color.BLUE);
                     Storage.toDoArray.set(2, "O");
                     checkWinner("O");
                     Storage.playerTurn = true;
@@ -172,6 +173,7 @@ public class GameActivity extends AppCompatActivity {
                 if (Storage.playerTurn) {
                     textView4.setText("X");
                     showView.setText(player2 + "s" + " turn!");
+                    textView4.setTextColor(Color.RED);
                     Storage.toDoArray.set(3, "X");
                     Storage.playerTurn = false;
                     checkWinner("X");
@@ -180,6 +182,7 @@ public class GameActivity extends AppCompatActivity {
                 } else {
                     textView4.setText("O");
                     showView.setText(player1 + "s" + " turn!");
+                    textView4.setTextColor(Color.BLUE);
                     Storage.toDoArray.set(3, "O");
                     Storage.playerTurn = true;
                     checkWinner("O");
@@ -199,15 +202,14 @@ public class GameActivity extends AppCompatActivity {
                 if (Storage.playerTurn) {
                     textView5.setText("X");
                     showView.setText(player2 + "s" + " turn!");
+                    textView5.setTextColor(Color.RED);
                     Storage.toDoArray.set(4, "X");
                     checkWinner("X");
                     Storage.playerTurn = false;
-
-
-
                 } else {
                     textView5.setText("O");
                     showView.setText(player1 + "s" + " turn!");
+                    textView5.setTextColor(Color.BLUE);
                     Storage.toDoArray.set(4, "O");
                     checkWinner("O");
                     Storage.playerTurn = true;
@@ -227,6 +229,7 @@ public class GameActivity extends AppCompatActivity {
                 if (Storage.playerTurn) {
                     textView6.setText("X");
                     showView.setText(player2 + "s" + " turn!");
+                    textView6.setTextColor(Color.RED);
                     Storage.toDoArray.set(5, "X");
                     checkWinner("X");
                     Storage.playerTurn = false;
@@ -235,11 +238,10 @@ public class GameActivity extends AppCompatActivity {
                 } else {
                     textView6.setText("O");
                     showView.setText(player1 + "s" + " turn!");
+                    textView6.setTextColor(Color.BLUE);
                     Storage.toDoArray.set(5, "O");
                     checkWinner("O");
                     Storage.playerTurn = true;
-
-
                 }
                 counter++;
                 checkOver();
@@ -256,6 +258,7 @@ public class GameActivity extends AppCompatActivity {
                     textView7.setText("X");
                     showView.setText(player2 + "s" + " turn!");
                     Storage.toDoArray.set(6, "X");
+                    textView7.setTextColor(Color.RED);
                     checkWinner("X");
                     Storage.playerTurn = false;
 
@@ -263,11 +266,10 @@ public class GameActivity extends AppCompatActivity {
                 } else {
                     textView7.setText("O");
                     showView.setText(player1 + "s" + " turn!");
+                    textView7.setTextColor(Color.BLUE);
                     Storage.toDoArray.set(6, "O");
                     checkWinner("O");
                     Storage.playerTurn = true;
-
-
                 }
                 counter++;
                 checkOver();
@@ -283,6 +285,7 @@ public class GameActivity extends AppCompatActivity {
                 if (Storage.playerTurn) {
                     textView8.setText("X");
                     showView.setText(player2 + "s" + " turn!");
+                    textView8.setTextColor(Color.RED);
                     Storage.toDoArray.set(7, "X");
                     checkWinner("X");
                     Storage.playerTurn = false;
@@ -291,6 +294,7 @@ public class GameActivity extends AppCompatActivity {
                 } else {
                     textView8.setText("O");
                     showView.setText(player1 + "s" + " turn!");
+                    textView8.setTextColor(Color.BLUE);
                     Storage.toDoArray.set(7, "O");
                     checkWinner("O");
                     Storage.playerTurn = true;
@@ -309,6 +313,7 @@ public class GameActivity extends AppCompatActivity {
                 if (Storage.playerTurn) {
                     textView9.setText("X");
                     showView.setText(player2 + "s" + " turn!");
+                    textView9.setTextColor(Color.RED);
                     Storage.toDoArray.set(8, "X");
                     checkWinner("X");
                     Storage.playerTurn = false;
@@ -316,6 +321,7 @@ public class GameActivity extends AppCompatActivity {
                 } else {
                     textView9.setText("O");
                     showView.setText(player1 + "s" + " turn!");
+                    textView9.setTextColor(Color.BLUE);
                     Storage.toDoArray.set(8, "O");
                     checkWinner("O");
                     Storage.playerTurn = true;
@@ -329,42 +335,34 @@ public class GameActivity extends AppCompatActivity {
         //Across Logic
         if (Storage.toDoArray.get(0).equals(check) && Storage.toDoArray.get(1).equals(check) && Storage.toDoArray.get(2).equals(check)) {
             Storage.lastWinner = check;
-            Toast.makeText(GameActivity.this, "Winner is " + Storage.lastWinner, Toast.LENGTH_SHORT).show();
             resetBoard();
 
         } else if (Storage.toDoArray.get(3).equals(check) && Storage.toDoArray.get(4).equals(check) && Storage.toDoArray.get(5).equals(check)) {
             Storage.lastWinner = check;
-            Toast.makeText(GameActivity.this, "Winner is " + Storage.lastWinner, Toast.LENGTH_SHORT).show();
             resetBoard();
 
         } else if (Storage.toDoArray.get(6).equals(check) && Storage.toDoArray.get(7).equals(check) && Storage.toDoArray.get(8).equals(check)) {
             Storage.lastWinner = check;
-            Toast.makeText(GameActivity.this, "Winner is " + Storage.lastWinner, Toast.LENGTH_SHORT).show();
             resetBoard();
 
         }
         //Up + Down Logic
         else if (Storage.toDoArray.get(0).equals(check) && Storage.toDoArray.get(3).equals(check) && Storage.toDoArray.get(6).equals(check)) {
             Storage.lastWinner = check;
-            Toast.makeText(GameActivity.this, "Winner is " + Storage.lastWinner, Toast.LENGTH_SHORT).show();
             resetBoard();
         } else if (Storage.toDoArray.get(1).equals(check) && Storage.toDoArray.get(4).equals(check) && Storage.toDoArray.get(7).equals(check)) {
             Storage.lastWinner = check;
-            Toast.makeText(GameActivity.this, "Winner is " + Storage.lastWinner, Toast.LENGTH_SHORT).show();
             resetBoard();
         } else if (Storage.toDoArray.get(2).equals(check) && Storage.toDoArray.get(5).equals(check) && Storage.toDoArray.get(8).equals(check)) {
             Storage.lastWinner = check;
-            Toast.makeText(GameActivity.this, "Winner is " + Storage.lastWinner, Toast.LENGTH_SHORT).show();
             resetBoard();
         }
         //diagonal check
         else if (Storage.toDoArray.get(0).equals(check) && Storage.toDoArray.get(4).equals(check) && Storage.toDoArray.get(8).equals(check)) {
             Storage.lastWinner = check;
-            Toast.makeText(GameActivity.this, "Winner is " + Storage.lastWinner, Toast.LENGTH_SHORT).show();
             resetBoard();
         } else if (Storage.toDoArray.get(2).equals(check) && Storage.toDoArray.get(4).equals(check) && Storage.toDoArray.get(6).equals(check)) {
             Storage.lastWinner = check;
-            Toast.makeText(GameActivity.this, "Winner is " + Storage.lastWinner, Toast.LENGTH_SHORT).show();
             resetBoard();
         }
     }
