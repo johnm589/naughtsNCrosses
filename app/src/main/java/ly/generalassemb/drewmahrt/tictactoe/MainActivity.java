@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
                 String player1 = p1.getText().toString();
                 String player2 = p2.getText().toString();
 
-                tv.setText(Storage.lastWinner);
+                tv.setText("The last winner was " + Storage.lastWinner + " !");
 
                 Intent i = new Intent(MainActivity.this, GameActivity.class);
                 i.putExtra("player1", player1);

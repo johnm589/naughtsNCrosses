@@ -9,7 +9,7 @@ import android.widget.Toast;
 
 public class GameActivity extends AppCompatActivity {
 
-    public static int counter = 1;
+    public static int counter = 0;
 
 
 
@@ -25,7 +25,7 @@ public class GameActivity extends AppCompatActivity {
 
         final String player1 = i.getStringExtra("player1");
         final String player2 = i.getStringExtra("player2");
-        
+
         Storage.player1 = player1;
         Storage.player2 = player2;
 
@@ -300,6 +300,7 @@ public class GameActivity extends AppCompatActivity {
                     checkWinner("O");
                     Storage.playerTurn = true;
                 }
+                counter ++;
                 checkOver();
             }
         });
@@ -317,15 +318,12 @@ public class GameActivity extends AppCompatActivity {
                     checkWinner("X");
                     Storage.playerTurn = false;
 
-
                 } else {
                     textView9.setText("O");
                     showView.setText(player2 + "s" + " turn!");
                     Storage.toDoArray.set(8, "O");
                     checkWinner("O");
                     Storage.playerTurn = true;
-
-
                 }
                 counter++;
                 checkOver();
@@ -368,6 +366,8 @@ public void checkOver(){
 
 }
     public void resetBoard(){
+
+        counter = 0;
 
         final TextView textView = (TextView) findViewById(R.id.textView);
         final TextView textView2 = (TextView) findViewById(R.id.textView2);
