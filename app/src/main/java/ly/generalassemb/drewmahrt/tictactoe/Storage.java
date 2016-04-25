@@ -27,4 +27,8 @@ public class Storage {
 
     static ArrayList<String> toDoArray = new ArrayList<>();
 
+    //store player name
+    public static String player1;
+    public static String player2;
+
 }

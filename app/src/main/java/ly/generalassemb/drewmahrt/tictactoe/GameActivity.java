@@ -9,6 +9,10 @@ import android.widget.Toast;
 
 public class GameActivity extends AppCompatActivity {
 
+    public static int counter = 1;
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +25,9 @@ public class GameActivity extends AppCompatActivity {
 
         final String player1 = i.getStringExtra("player1");
         final String player2 = i.getStringExtra("player2");
+        
+        Storage.player1 = player1;
+        Storage.player2 = player2;
 
         showView.setText("It's " + player1 + "'s " + "turn!");
 
@@ -33,6 +40,7 @@ public class GameActivity extends AppCompatActivity {
         final TextView textView7 = (TextView) findViewById(R.id.textView7);
         final TextView textView8 = (TextView) findViewById(R.id.textView8);
         final TextView textView9 = (TextView) findViewById(R.id.textView9);
+
 
 
         //Populate array
@@ -98,6 +106,7 @@ public class GameActivity extends AppCompatActivity {
 
 
                 }
+                counter++;
                 checkOver();
             }
         });
@@ -125,6 +134,7 @@ public class GameActivity extends AppCompatActivity {
 
 
                 }
+                counter++;
                 checkOver();
             }
         });
@@ -151,6 +161,7 @@ public class GameActivity extends AppCompatActivity {
 
 
                 }
+                counter++;
                 checkOver();
             }
         });
@@ -179,6 +190,7 @@ public class GameActivity extends AppCompatActivity {
 
 
                 }
+                counter++;
                 checkOver();
             }
         });
@@ -205,8 +217,8 @@ public class GameActivity extends AppCompatActivity {
                     checkWinner("O");
                     Storage.playerTurn = true;
 
-
                 }
+                counter++;
                 checkOver();
             }
         });
@@ -234,6 +246,7 @@ public class GameActivity extends AppCompatActivity {
 
 
                 }
+                counter++;
                 checkOver();
             }
         });
@@ -261,6 +274,7 @@ public class GameActivity extends AppCompatActivity {
 
 
                 }
+                counter++;
                 checkOver();
             }
         });
@@ -313,6 +327,7 @@ public class GameActivity extends AppCompatActivity {
 
 
                 }
+                counter++;
                 checkOver();
             }
         });
@@ -335,22 +350,34 @@ public class GameActivity extends AppCompatActivity {
             Toast.makeText(GameActivity.this, "Winner is " + Storage.lastWinner, Toast.LENGTH_SHORT).show();
             resetBoard();
 
+        }
 
+        if(Storage.lastWinner == "X"){
+            Storage.lastWinner = Storage.player1;
+        }else{
+            Storage.lastWinner = Storage.player2;
         }
     }
 
 public void checkOver(){
-
-for(int i = 1; i < Storage.toDoArray.size();i++){
-
-    if(!Storage.toDoArray.get(i).equals(Storage.toDoArray.get(i-1))){
-
+    if(counter == 9){
         Toast.makeText(GameActivity.this, "Game Over", Toast.LENGTH_SHORT).show();
+        resetBoard();
     }
 
-    }
+
 }
     public void resetBoard(){
+
+        final TextView textView = (TextView) findViewById(R.id.textView);
+        final TextView textView2 = (TextView) findViewById(R.id.textView2);
+        final TextView textView3 = (TextView) findViewById(R.id.textView3);
+        final TextView textView4 = (TextView) findViewById(R.id.textView4);
+        final TextView textView5 = (TextView) findViewById(R.id.textView5);
+        final TextView textView6 = (TextView) findViewById(R.id.textView6);
+        final TextView textView7 = (TextView) findViewById(R.id.textView7);
+        final TextView textView8 = (TextView) findViewById(R.id.textView8);
+        final TextView textView9 = (TextView) findViewById(R.id.textView9);
 
         Storage.toDoArray.set(0, "");
         Storage.toDoArray.set(1, "");
@@ -361,8 +388,25 @@ for(int i = 1; i < Storage.toDoArray.size();i++){
         Storage.toDoArray.set(6, "");
         Storage.toDoArray.set(7, "");
         Storage.toDoArray.set(8, "");
-        Storage.toDoArray.set(9, "");
 
+        Storage.check = true;
+        Storage.check2 = true;
+        Storage.check3 = true;
+        Storage.check4 = true;
+        Storage.check5 = true;
+        Storage.check6 = true;
+        Storage.check7 = true;
+        Storage.check8 = true;
+        Storage.check9 = true;
 
+        textView.setText(Storage.toDoArray.get(0));
+        textView2.setText(Storage.toDoArray.get(1));
+        textView3.setText(Storage.toDoArray.get(2));
+        textView4.setText(Storage.toDoArray.get(3));
+        textView5.setText(Storage.toDoArray.get(4));
+        textView6.setText(Storage.toDoArray.get(5));
+        textView7.setText(Storage.toDoArray.get(6));
+        textView8.setText(Storage.toDoArray.get(7));
+        textView9.setText(Storage.toDoArray.get(8));
     }
 }
