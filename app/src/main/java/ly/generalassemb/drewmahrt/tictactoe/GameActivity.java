@@ -347,6 +347,30 @@ public class GameActivity extends AppCompatActivity {
             resetBoard();
 
         }
+        //Up + Down Logic
+        else if (Storage.toDoArray.get(0).equals(check) && Storage.toDoArray.get(3).equals(check) && Storage.toDoArray.get(6).equals(check)) {
+            Storage.lastWinner = check;
+            Toast.makeText(GameActivity.this, "Winner is " + Storage.lastWinner, Toast.LENGTH_SHORT).show();
+            resetBoard();
+        } else if (Storage.toDoArray.get(1).equals(check) && Storage.toDoArray.get(4).equals(check) && Storage.toDoArray.get(7).equals(check)) {
+            Storage.lastWinner = check;
+            Toast.makeText(GameActivity.this, "Winner is " + Storage.lastWinner, Toast.LENGTH_SHORT).show();
+            resetBoard();
+        } else if (Storage.toDoArray.get(2).equals(check) && Storage.toDoArray.get(5).equals(check) && Storage.toDoArray.get(8).equals(check)) {
+            Storage.lastWinner = check;
+            Toast.makeText(GameActivity.this, "Winner is " + Storage.lastWinner, Toast.LENGTH_SHORT).show();
+            resetBoard();
+        }
+        //diagonal check
+        else if (Storage.toDoArray.get(0).equals(check) && Storage.toDoArray.get(4).equals(check) && Storage.toDoArray.get(8).equals(check)) {
+            Storage.lastWinner = check;
+            Toast.makeText(GameActivity.this, "Winner is " + Storage.lastWinner, Toast.LENGTH_SHORT).show();
+            resetBoard();
+        } else if (Storage.toDoArray.get(2).equals(check) && Storage.toDoArray.get(4).equals(check) && Storage.toDoArray.get(6).equals(check)) {
+            Storage.lastWinner = check;
+            Toast.makeText(GameActivity.this, "Winner is " + Storage.lastWinner, Toast.LENGTH_SHORT).show();
+            resetBoard();
+        }
     }
 
 public void checkOver(){
@@ -392,7 +416,11 @@ public void checkOver(){
         Storage.check8 = true;
         Storage.check9 = true;
 
-        this.finish();
+        Toast.makeText(GameActivity.this, "Game Over! " + Storage.lastWinner + " wins!", Toast.LENGTH_LONG).show();
+
+        Intent i = new Intent(GameActivity.this, MainActivity.class);
+
+        startActivity(i);
 
     }
 }

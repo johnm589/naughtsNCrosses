@@ -16,12 +16,17 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         Button intentButton = (Button)findViewById(R.id.start_game_button);
+
         final EditText p1 = (EditText)findViewById(R.id.player_one_name);
         final EditText p2 = (EditText)findViewById(R.id.player_two_name);
-         TextView tv = (TextView)findViewById(R.id.last_winner_text);
 
-        tv.setText("The last winner was " + Storage.lastWinner + " !");
 
+        TextView tv = (TextView)findViewById(R.id.last_winner_text);
+if (Storage.lastWinner != "") {
+    tv.setText("The last winner was " + Storage.lastWinner + " !");
+}else{
+    tv.setText("Let's Play!");
+}
 
 
         intentButton.setOnClickListener(new View.OnClickListener() {
