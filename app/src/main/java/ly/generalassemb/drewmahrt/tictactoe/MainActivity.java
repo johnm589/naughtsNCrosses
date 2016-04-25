@@ -27,26 +27,20 @@ if (Storage.lastWinner != "") {
 }else{
     tv.setText("Let's Play!");
 }
-
-
         intentButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Storage.playerTurn = true;
 
                 String player1 = p1.getText().toString();
                 String player2 = p2.getText().toString();
-
 
                 Intent i = new Intent(MainActivity.this, GameActivity.class);
                 i.putExtra("player1", player1);
                 i.putExtra("player2", player2);
 
-
                 startActivity(i);
-
             }
-
         });
-
     }
 }
