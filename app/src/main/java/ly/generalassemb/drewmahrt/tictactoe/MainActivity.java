@@ -1,6 +1,7 @@
 package ly.generalassemb.drewmahrt.tictactoe;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -15,6 +16,15 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        //Get shared prefs
+
+        SharedPreferences sharedPrefs = getSharedPreferences("ly.generalassemb.drewmahrt.tictactoe", MODE_PRIVATE);
+
+        //retrieve the text
+
+        String prefWinner = sharedPrefs.getString("exampleKey", "");
+
+
         Button intentButton = (Button)findViewById(R.id.start_game_button);
 
         final EditText p1 = (EditText)findViewById(R.id.player_one_name);
@@ -24,11 +34,10 @@ public class MainActivity extends AppCompatActivity {
         p2.setText(Storage.player2);
 
         TextView tv = (TextView)findViewById(R.id.last_winner_text);
-if (Storage.lastWinner != "") {
-    tv.setText("The last winner was " + Storage.lastWinner + " !");
-}else{
-    tv.setText("Let's Play!");
-}
+
+            tv.setText("The last winner was " + prefWinner + " !");
+
+
         intentButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

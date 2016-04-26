@@ -1,6 +1,7 @@
 package ly.generalassemb.drewmahrt.tictactoe;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -12,14 +13,10 @@ public class GameActivity extends AppCompatActivity {
 
      int counter = 0;
 
-
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
-
 
         Storage.playerTurn = true;
 
@@ -58,7 +55,7 @@ public class GameActivity extends AppCompatActivity {
         Storage.toDoArray.add("");
 
 
-        //keep persistance views
+        //keep Persistence views
 
         textView.setText(Storage.toDoArray.get(0));
         textView2.setText(Storage.toDoArray.get(1));
@@ -70,7 +67,7 @@ public class GameActivity extends AppCompatActivity {
         textView8.setText(Storage.toDoArray.get(7));
         textView9.setText(Storage.toDoArray.get(8));
 
-        //Keep persistance with ability to click
+        //Keep Persistence with ability to click
 
         textView.setEnabled(Storage.check);
         textView2.setEnabled(Storage.check2);
@@ -86,6 +83,7 @@ public class GameActivity extends AppCompatActivity {
         textView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
                 Storage.check = false;
 
                 textView.setEnabled(Storage.check);
@@ -365,13 +363,30 @@ public class GameActivity extends AppCompatActivity {
             Storage.lastWinner = check;
             resetBoard();
         }
+        //Shared Prefs
+
+        SharedPreferences sharedPrefs = getSharedPreferences("ly.generalassemb.drewmahrt.tictactoe", MODE_PRIVATE);
+        //from the shared preferences, get the editor
+
+        SharedPreferences.Editor editor = sharedPrefs.edit();
+
+
+        //use the editor to put the text
+        editor.putString("exampleKey",  Storage.lastWinner);
+
+        //commit the edit
+        editor.commit();
+
     }
 
 public void checkOver(){
 
     if(counter == 9){
+
         Toast.makeText(GameActivity.this, "Game Over: Draw!", Toast.LENGTH_SHORT).show();
+
         resetBoard();
+
     }
 }
     public void resetBoard(){
